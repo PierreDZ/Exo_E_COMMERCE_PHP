@@ -1,4 +1,5 @@
 <?php
+
 require_once ("views/templ/main_header.php");
 
 echo '<div id="contentblock">';

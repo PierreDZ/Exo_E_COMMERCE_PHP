@@ -1,5 +1,5 @@
     <div id="mleft">
-        <p><?php echo $sitetitle;?> - 2023(R) par Moi, <?php echo $siteslogan;?></p>
+        <p><?php echo $conf->getSignature();?></p>
     </div>
     <div id="mright">
         <p><?php    

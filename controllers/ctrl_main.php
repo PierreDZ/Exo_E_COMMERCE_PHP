@@ -4,14 +4,16 @@ if(!isset($_SESSION["connected"]) || empty($_SESSION["connected"])){
     $_SESSION["connected"] = false;
 }
 
-require_once ("tools/config.php");
-require_once ("tools/multiload.php");
+$conf = new Config(
+    "MustShop",
+    "Boutique basique et incomplete...Pour les Geeks et les autres. ",
+    "index.css");
 
 $id_ssCat=0;
 $id_Art=0;
 if (isset($_GET['idsscat'])) { // affichier tous les articles selon la sous categorie choisie
     if(!empty($_GET["idsscat"])){
-        $id_ssCat = protect_montexte($_GET["idsscat"]);
+        $id_ssCat = $conf->protect_montexte($_GET["idsscat"]);
     }
     if( $id_ssCat <> 0){
         $modArticles = new ModArticles();
@@ -20,7 +22,7 @@ if (isset($_GET['idsscat'])) { // affichier tous les articles selon la sous cate
     }
 } else if (isset($_GET['idart'])) { // afficher la page d'un article
     if(!empty($_GET["idart"])){
-        $id_Art = protect_montexte($_GET["idart"]);
+        $id_Art = $conf->protect_montexte($_GET["idart"]);
     }
     if( $id_Art <> 0){
         $modArticles = new ModArticles();

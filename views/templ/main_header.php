@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $sitetitle; ?></title>
+    <title><?php echo $conf->getTitle(); ?></title>
     <meta name="description" content="Ma petite boutique">
     <meta name="keywords" content="php , afpa, e-commerce, mustapha ">
     <meta name="author" content="Mustapha A.">
-    <link rel="stylesheet" href="assets/css/<?php echo $siteCSS; ?>">     
+    <link rel="stylesheet" href="assets/css/<?php echo $conf->getStyle(); ?>">     
 </head>
 <body>
     <div id="mainsite">
