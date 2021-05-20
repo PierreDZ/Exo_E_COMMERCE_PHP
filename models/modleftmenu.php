@@ -1,7 +1,7 @@
 <?php
 class ModLeftMenu
 {
-    public function buildLeftMenu()
+    public static function buildLeftMenu()
     {
         $cat = new ModCategories();
         $qry_result = $cat->getAllcategories();

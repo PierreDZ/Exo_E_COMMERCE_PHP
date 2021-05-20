@@ -13,10 +13,16 @@ class ModArticles implements Conn_db
         }
     }
 
-
-    function getAllArticles(){
+    function getAllArticles($param=""){
         $query = "SELECT * FROM produits";
+        if ($param != ""){
+            $query .= "  where nomArticle like :param or descArticle like :param"; 
+            $paramTmp = "%".$param."%";
+        }
         $stmt = $this->conn->prepare($query);
+        if($param != ""){
+            $stmt->bindParam('param', $paramTmp, PDO::PARAM_STR);
+        }
         $stmt->execute();
         return $stmt;
     }

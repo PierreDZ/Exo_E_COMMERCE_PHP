@@ -7,10 +7,12 @@ if(!isset($_SESSION["connected"]) || empty($_SESSION["connected"])){
 $conf = new Config(
     "MustShop",
     "Boutique basique et incomplete...Pour les Geeks et les autres. ",
-    "index.css");
+    "index.css"
+);
 
 $id_ssCat=0;
 $id_Art=0;
+
 if (isset($_GET['idsscat'])) { // affichier tous les articles selon la sous categorie choisie
     if(!empty($_GET["idsscat"])){
         $id_ssCat = $conf->protect_montexte($_GET["idsscat"]);
@@ -29,14 +31,34 @@ if (isset($_GET['idsscat'])) { // affichier tous les articles selon la sous cate
         $article = $modArticles->getArticle($id_Art);
         $str_inc ="views/view_article.php";
     }
-} else if(isset($txtSearch) && !empty($txtSearch)){ // recherche par le form 
-    $str_inc ="resultSearch.php";
-} else if(isset($_GET['all'])){ // menu produits : on affiche tout !!! 
+} else if (isset($_GET["txtSearch"]) && !empty(isset($_GET["txtSearch"]))){ // recherche par le formulaire 
+    $txtSearch = $conf->protect_montexte($_GET['txtSearch']);
+    unset($_GET["txtSearch"]);
+    $modArticles = new ModArticles();
+    $allArticles = $modArticles->getAllArticles($txtSearch);
+    $str_inc ="views/view_afficherall.php";
+} else if(isset($_GET['all'])){ // menu Catalogue : on affiche tout !!! 
     $modArticles = new ModArticles();
     $allArticles = $modArticles->getAllArticles();
     $str_inc ="views/view_afficherall.php";
 } else if(isset($_GET['act'])){ // afficher le panier
     $str_inc ="views/view_afficherpanier.php";
+}else if(isset($_GET['register'])) {
+    if(!empty($_GET["register"])){
+        $reg = $conf->protect_montexte($_GET["register"]);
+    }
+    if(strtolower($reg) === "register"){
+        //$str_inc = "views/register.php";
+        header('location:views/user_register.php');
+    }
+}else if(isset($_GET['login'])) {
+    if(!empty($_GET["login"])){
+        $login = $conf->protect_montexte($_GET["login"]);
+    }
+    if(strtolower($login) === "login"){
+        //$str_inc = "views/view_login.php";
+        header('location:views/user_login.php');
+    }   
 }else { // page accueil
     $str_inc ="views/view_bienvenue.html";
 }

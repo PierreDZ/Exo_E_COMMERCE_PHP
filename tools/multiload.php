@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function ($className) {
-    $dirs = ['models','tools'];
+    $dirs = ['models','tools','../models','../tools'];
     try {
         $err = true;
         foreach ($dirs as $dir) {

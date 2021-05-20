@@ -1,4 +1,6 @@
 <?php
+
+$resLeftMenu = ModLeftMenu::buildLeftMenu();
 $menu_string = '<ul>';
 foreach ($resLeftMenu as $catM => $SsCats) {
     $menu_string  .= '<li class="licategorie">' . $catM . '</li>';
