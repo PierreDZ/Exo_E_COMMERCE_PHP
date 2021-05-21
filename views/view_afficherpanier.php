@@ -11,7 +11,7 @@ if (!isset($_SESSION["panier"]["nbeArt"]) || empty($_SESSION["panier"]["nbeArt"]
   ?>
     <p>
       Panier vide :-(<br><br>
-      <img src="assets/img/paniervide.jpg" alt="panier vide" width="" height="" />
+      <img class="img-fluid"  src="assets/img/paniervide.jpg" alt="panier vide" width="" height="" />
     </p>
   <?php
   } else {
@@ -33,7 +33,7 @@ if (!isset($_SESSION["panier"]["nbeArt"]) || empty($_SESSION["panier"]["nbeArt"]
           while ($row = $qry_result->fetch(PDO::FETCH_ASSOC)) {
             $rep = '';
             $rep .= '<tr>';
-            $rep .= '<td><img src="' . $row['photoArticle'] . '" alt="' . $row['nomArticle'] . '"  width=60 height=60>&nbsp;';
+            $rep .= '<td><img class="img-fluid" src="' . $row['photoArticle'] . '" alt="' . $row['nomArticle'] . '"  width=60 height=60>&nbsp;';
             $rep .= utf8_encode($row['nomArticle']) . '</td>';
             $rep .= '<td>' . $row["prixArticle"] . '</td>';
             $rep .= '<td><a href="miscs/supprimerpanier.php?supart=' . $i . '" >Supprimer</a></td>';

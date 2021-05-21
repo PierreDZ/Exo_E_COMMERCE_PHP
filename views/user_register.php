@@ -92,7 +92,7 @@
             <span class="error">* <?php echo $email_err; ?></span>
             <br>
             Mot de passe:<br>
-            <input type="text" name="password" value="<?php echo $password; ?>">
+            <input type="password" name="password" value="<?php echo $password; ?>">
             <span class="error">* <?php echo $password_err; ?></span>
             <br>
             <br>

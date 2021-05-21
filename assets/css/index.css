@@ -17,13 +17,13 @@ body {
 #mainsite {
     margin: 0px auto;
     padding: 0px;
-    width : 1024px;
+    width : 1124px;
     background-color: white;
     border: 2px solid;
 }
 #headerblock{
     background-image: url("../img/header.jpg");
-    height: 120px;
+    height: 310px;
     padding : 0px;
     margin : 0px;
     white-space: nowrap;

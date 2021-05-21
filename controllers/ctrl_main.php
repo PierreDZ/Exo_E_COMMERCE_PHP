@@ -64,4 +64,4 @@ if (isset($_GET['idsscat'])) { // affichier tous les articles selon la sous cate
 }
 
 
-require_once ("views/view_index.php");
+require_once ("views/ctrl_view_index.php");
