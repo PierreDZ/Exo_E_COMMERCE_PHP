@@ -1,13 +1,14 @@
+<?php
+require_once '../tools/multiload.php';
+$conf = new Config(
+    "MustShop",
+    "Boutique basique et incomplete...Pour les Geeks et les autres. ",
+    "index.css"
+);
+require_once 'templ/user_header.php';
+?>
 <div id="registerrep">
     <?php
-
-    require_once '../tools/multiload.php';
-
-    $conf = new Config(
-        "MustShop",
-        "Boutique basique et incomplete...Pour les Geeks et les autres. ",
-        "index.css"
-    );
 
     $firstname = "";
     $lastname = "";
@@ -103,3 +104,5 @@
     <p><span class="error">* champs obligatoires.</span></p>
 
 </div>
+<?php
+    require_once 'templ/user_footer.php';

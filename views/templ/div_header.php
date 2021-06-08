@@ -22,11 +22,11 @@
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="compte.php">Compte</a>
+                        <a class="nav-link" href="views/user_compte.php">Compte</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="views/user_deconnexion.php">
-                            [<?php echo $_SESSION["utilisateur"]["nom"]; ?>]Déconnexion
+                            [<?php echo $_SESSION["utilisateur"]["nom"]; ?>] Déconnexion
                         </a>
                     </li>
                 <?php } ?>

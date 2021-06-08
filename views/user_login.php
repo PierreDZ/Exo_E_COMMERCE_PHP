@@ -3,18 +3,18 @@ session_start();
 if(!isset($_SESSION["connected"]) || empty($_SESSION["connected"])){
     $_SESSION["connected"] = false;
 }
+
+require_once '../tools/multiload.php';
+$conf = new Config(
+    "MustShop",
+    "Boutique basique et incomplete...Pour les Geeks et les autres. ",
+    "index.css"
+);
+require_once 'templ/user_header.php';
 ?>
 
 <div id="registerrep">
     <?php
-
-    require_once '../tools/multiload.php';
-
-    $conf = new Config(
-        "MustShop",
-        "Boutique basique et incomplete...Pour les Geeks et les autres. ",
-        "index.css"
-    );
 
     $email = "";
     $password = "";
@@ -56,18 +56,18 @@ if(!isset($_SESSION["connected"]) || empty($_SESSION["connected"])){
                     $_SESSION["utilisateur"]["lastlogin"] = $row["lastlogin"];
                     $_SESSION["newdatelogin"] = date("Y-m-d H:i:s");
 
-                    //doUpdateLastLogin($_SESSION["newdatelogin"], $_SESSION["utilisateur"]["id"]);
+                    $user->doUpdateLastLogin($_SESSION["newdatelogin"], $_SESSION["utilisateur"]["id"]);
                     header("location:../index.php");
                     exit;
                 } else {
                     $str = "<p>";
-                    $str .= "<h2>1Conexion Impossible. Erreur sur  Utilisateur ET/OU mot de passe</h2>";
+                    $str .= "<h2>Conexion Impossible.<br>Erreur sur  Utilisateur ET/OU mot de passe</h2>";
                     $str .= "</p>";
                     echo $str;
                 }
             } else if ($qry_result->rowCount() == 0) {
                 $str = "<p>";
-                $str .= "<h2>2Conexion Impossible. Erreur sur  Utilisateur ET/OU mot de passe</h2>";
+                $str .= "<h2>Conexion Impossible.<br>Erreur sur  Utilisateur ET/OU mot de passe</h2>";
                 $str .= "</p>";
                 echo $str;
             } else {
@@ -104,3 +104,6 @@ if(!isset($_SESSION["connected"]) || empty($_SESSION["connected"])){
 
     <?php } ?>
     </div>
+
+    <?php
+    require_once 'templ/user_footer.php';
